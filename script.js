@@ -1,32 +1,31 @@
-// Countdown
+// Countdown to 14 Nov 2026 4:00 PM
 function updateCountdown() {
-  const wedding = new Date('2026-11-14T16:00:00');
+  const target = new Date('2026-11-14T16:00:00');
   const now = new Date();
-  const diff = wedding - now;
+  const diff = target - now;
 
   if (diff <= 0) {
-    document.getElementById('cd-days').textContent = '00';
-    document.getElementById('cd-hours').textContent = '00';
-    document.getElementById('cd-mins').textContent = '00';
-    document.getElementById('cd-secs').textContent = '00';
+    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+      document.getElementById(id).textContent = '00';
+    });
     return;
   }
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const secs = Math.floor((diff % (1000 * 60)) / 1000);
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
 
-  document.getElementById('cd-days').textContent = String(days).padStart(3, '0');
-  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
-  document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+  document.getElementById('cd-days').textContent  = String(d).padStart(3, '0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-mins').textContent  = String(m).padStart(2, '0');
+  document.getElementById('cd-secs').textContent  = String(s).padStart(2, '0');
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// FAQ toggle
+// FAQ accordion
 function toggleFaq(btn) {
   const item = btn.parentElement;
   const isOpen = item.classList.contains('open');
@@ -36,41 +35,46 @@ function toggleFaq(btn) {
 
 // Mobile nav
 function toggleMenu() {
-  document.getElementById('navbar').classList.toggle('nav-mobile-open');
+  document.getElementById('mobile-menu').classList.toggle('open');
 }
-
-// Close mobile nav on link click
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('navbar').classList.remove('nav-mobile-open');
-  });
-});
 
 // RSVP form
 function submitRsvp(e) {
   e.preventDefault();
-  document.querySelector('.rsvp-form').style.display = 'none';
+  e.target.style.display = 'none';
   document.getElementById('rsvp-thanks').style.display = 'block';
 }
 
-// Scroll animations
+// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.12 });
 
-document.querySelectorAll('.celeb-card, .lugar-card, .faq-item, .cd-item, .historia-text, .historia-img-wrap, .dress-card').forEach(el => {
-  el.classList.add('fade-in');
+document.querySelectorAll(
+  '.inv-text-layer, .inv-photo-wrap, .cd-content, ' +
+  '.bigday-title-overlay, .bigday-schedule, ' +
+  '.lugar-card, .sched-item, .faq-item, ' +
+  '.dress-body-wrap, .rsvp-form'
+).forEach(el => {
+  el.classList.add('reveal');
   observer.observe(el);
 });
 
-// Navbar scroll effect
+// Stagger schedule items
+document.querySelectorAll('.sched-item').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.08}s`;
+});
+
+// Navbar transparency on scroll
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
-  if (window.scrollY > 50) {
-    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+  if (window.scrollY > 80) {
+    nav.style.background = 'rgba(17,16,16,0.95)';
   } else {
-    nav.style.boxShadow = 'none';
+    nav.style.background = 'rgba(17,16,16,0.75)';
   }
 });
