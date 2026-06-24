@@ -144,12 +144,18 @@ a { text-decoration: none; color: inherit; }
 .hero-bg {
   position: absolute;
   inset: 0;
+  background: url('hero.jpg') center center / cover no-repeat;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
-    150deg,
-    #1c1228 0%,
-    #2c1f4a 30%,
-    #3d2c5e 55%,
-    #1c1228 100%
+    to bottom,
+    rgba(10,6,20,0.45) 0%,
+    rgba(20,12,38,0.55) 50%,
+    rgba(10,6,20,0.7) 100%
   );
 }
 
