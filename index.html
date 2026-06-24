@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carmen & Christopher | 14 de Noviembre 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">C & C</div>
+    <ul class="nav-links">
+      <li><a href="#historia">Nosotros</a></li>
+      <li><a href="#celebracion">La Celebración</a></li>
+      <li><a href="#lugar">Lugar</a></li>
+      <li><a href="#dresscode">Dress Code</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <button class="nav-rsvp" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">RSVP</button>
+    <button class="nav-burger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-date">14 · 11 · 2026</p>
+      <h1 class="hero-names">Carmen <span class="amp">&</span> Christopher</h1>
+      <p class="hero-lugar">San Cayetano de Medina</p>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">NOS CASAMOS</p>
+    </div>
+    <div class="hero-scroll" onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})">
+      <span>↓</span>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section id="historia">
+    <div class="container">
+      <p class="section-label">Nuestra historia</p>
+      <h2 class="section-title">Una celebración de amor</h2>
+      <div class="historia-grid">
+        <div class="historia-img-wrap">
+          <div class="historia-img historia-img-1"></div>
+        </div>
+        <div class="historia-text">
+          <p class="historia-body">
+            Con el corazón lleno de alegría y amor, tenemos el honor de invitarte a compartir el día más especial de nuestras vidas. Después de caminar juntos por este hermoso camino, estamos listos para dar el siguiente paso y unirnos para siempre.
+          </p>
+          <p class="historia-body">
+            Tu presencia será el regalo más grande que puedas darnos en este día tan especial. Queremos celebrar rodeados de las personas que más amamos.
+          </p>
+          <div class="historia-firma">
+            <span class="firma">Carmen & Christopher</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CELEBRACION -->
+  <section id="celebracion">
+    <div class="celeb-inner">
+      <p class="section-label light">La celebración</p>
+      <h2 class="section-title light">El Gran Día</h2>
+      <div class="celeb-grid">
+
+        <div class="celeb-card">
+          <div class="celeb-icon">⛪</div>
+          <p class="celeb-day">Sábado, 14 de Noviembre</p>
+          <h3 class="celeb-event">Ceremonia Religiosa</h3>
+          <p class="celeb-time">4:00 PM</p>
+          <p class="celeb-desc">Misa de matrimonio</p>
+          <a href="https://maps.app.goo.gl/BSN5gy41ELouhrn3A" target="_blank" class="celeb-btn">Ver ubicación</a>
+        </div>
+
+        <div class="celeb-card celeb-card--center">
+          <div class="celeb-date-big">
+            <span class="celeb-mes">NOVIEMBRE</span>
+            <span class="celeb-num">14</span>
+            <span class="celeb-year">2026</span>
+          </div>
+        </div>
+
+        <div class="celeb-card">
+          <div class="celeb-icon">🥂</div>
+          <p class="celeb-day">Sábado, 14 de Noviembre</p>
+          <h3 class="celeb-event">Recepción</h3>
+          <p class="celeb-time">6:00 PM</p>
+          <p class="celeb-desc">Quinta San Francisco</p>
+          <a href="https://maps.app.goo.gl/Nmgrgb62YfWBgKAF9" target="_blank" class="celeb-btn">Ver ubicación</a>
+        </div>
+
+      </div>
+      <a href="#rsvp" class="celeb-confirm-btn" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});return false;">Confirmar Asistencia</a>
+    </div>
+  </section>
+
+  <!-- CUENTA REGRESIVA -->
+  <section id="countdown">
+    <div class="container">
+      <p class="section-label">Nos casamos en</p>
+      <h2 class="section-title">Que comience la cuenta regresiva</h2>
+      <div class="countdown-grid">
+        <div class="cd-item"><span class="cd-num" id="cd-days">000</span><span class="cd-label">Días</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Horas</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutos</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Segundos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LUGAR -->
+  <section id="lugar">
+    <div class="container">
+      <p class="section-label">Dónde celebramos</p>
+      <h2 class="section-title">Los Lugares</h2>
+
+      <div class="lugar-grid">
+        <div class="lugar-card">
+          <div class="lugar-icon">⛪</div>
+          <h3 class="lugar-name">Ceremonia Religiosa</h3>
+          <p class="lugar-desc">Misa de Matrimonio<br>4:00 PM</p>
+          <a href="https://maps.app.goo.gl/BSN5gy41ELouhrn3A" target="_blank" class="lugar-link">
+            <span>📍</span> Ver en Google Maps
+          </a>
+        </div>
+
+        <div class="lugar-divider"></div>
+
+        <div class="lugar-card">
+          <div class="lugar-icon">🌸</div>
+          <h3 class="lugar-name">Quinta San Francisco</h3>
+          <p class="lugar-desc">P.º de los Ángeles y Medina 314<br>San Cayetano de Medina<br>Recepción 6:00 PM</p>
+          <a href="https://maps.app.goo.gl/Nmgrgb62YfWBgKAF9" target="_blank" class="lugar-link">
+            <span>📍</span> Ver en Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section id="dresscode">
+    <div class="dress-inner">
+      <p class="section-label light">Cómo vestir</p>
+      <h2 class="section-title light">Dress Code</h2>
+      <div class="dress-card">
+        <div class="dress-badge">Formal Casual</div>
+        <p class="dress-body">
+          Queremos que te sientas cómodo/a y elegante en nuestra celebración. El código de vestimenta es <strong>Formal Casual</strong>.
+        </p>
+        <div class="dress-divider"></div>
+        <p class="dress-note">
+          <span class="dress-icon">🌸</span>
+          Por favor, <strong>evita usar el color lila</strong> — ¡es el color de nuestra boda!
+        </p>
+        <div class="dress-palette">
+          <div class="palette-item">
+            <div class="palette-color" style="background:#f5f5f0;border:1px solid #ccc;"></div>
+            <span>Blanco / Crema</span>
+          </div>
+          <div class="palette-item">
+            <div class="palette-color" style="background:#d4af37;"></div>
+            <span>Dorado</span>
+          </div>
+          <div class="palette-item">
+            <div class="palette-color" style="background:#2d2d2d;"></div>
+            <span>Negro / Oscuro</span>
+          </div>
+          <div class="palette-item">
+            <div class="palette-color" style="background:#8b7355;"></div>
+            <span>Nude / Tierra</span>
+          </div>
+          <div class="palette-item palette-avoid">
+            <div class="palette-color" style="background:#b39ddb;"></div>
+            <span>❌ Lila (evitar)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <p class="section-label">Tus dudas</p>
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Cuándo debo confirmar mi asistencia? <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Te pedimos que confirmes tu asistencia antes del 1 de octubre de 2026 para que podamos organizarnos y tenerte todo listo.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Puedo llevar acompañante? <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>La invitación es personal. Si tienes dudas sobre si puedes llevar acompañante, no dudes en contactarnos directamente.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Habrá estacionamiento? <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Sí, la Quinta San Francisco cuenta con estacionamiento disponible para todos los invitados.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Se permiten niños? <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Adoramos a los pequeños, pero para que todos puedan disfrutar plenamente de la celebración, es una boda solo para adultos. Agradecemos tu comprensión.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Qué pasa si llego tarde a la misa? <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-a">
+            <p>La misa iniciará puntualmente a las 4:00 PM. Te recomendamos llegar al menos 15 minutos antes para encontrar tu lugar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <div class="rsvp-inner">
+      <p class="section-label light">Únete a nosotros</p>
+      <h2 class="section-title light">Confirma tu Asistencia</h2>
+      <p class="rsvp-sub">Tu presencia es el mejor regalo. Por favor confirma antes del <strong>1 de octubre de 2026</strong>.</p>
+      <form class="rsvp-form" onsubmit="submitRsvp(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label>Teléfono / WhatsApp</label>
+            <input type="tel" placeholder="+52 000 000 0000" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>¿Asistirás?</label>
+            <select required>
+              <option value="">Selecciona...</option>
+              <option value="si">Sí, con gusto asistiré</option>
+              <option value="no">Lo siento, no podré asistir</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Número de acompañantes</label>
+            <select>
+              <option value="0">Solo yo</option>
+              <option value="1">+ 1 acompañante</option>
+              <option value="2">+ 2 acompañantes</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Mensaje para los novios (opcional)</label>
+          <textarea placeholder="Escribe un mensaje especial..."></textarea>
+        </div>
+        <button type="submit" class="rsvp-submit">Confirmar Asistencia</button>
+      </form>
+      <div id="rsvp-thanks" class="rsvp-thanks" style="display:none;">
+        <p>🌸 ¡Gracias! Tu confirmación ha sido recibida. ¡Los esperamos!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-names">Carmen <span class="amp">&</span> Christopher</div>
+    <p class="footer-date">14 · Noviembre · 2026</p>
+    <p class="footer-lugar">Quinta San Francisco · San Cayetano de Medina</p>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">Hecho con amor para nuestra boda 💛</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
