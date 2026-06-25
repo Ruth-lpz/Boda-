@@ -219,14 +219,19 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 0.45em;
   font-weight: 300;
   color: var(--dark2);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .label-amp { font-style: italic; color: var(--lila-dark); }
 
 .hero-date-script {
-  font-family: 'Pinyon Script', cursive;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
   color: var(--lila-dark);
+  letter-spacing: 0.35em;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .hero-scroll-cue {
@@ -290,20 +295,9 @@ a { text-decoration: none; color: inherit; }
 .inv-photo {
   width: 85%;
   aspect-ratio: 3/4;
-  background: linear-gradient(135deg, var(--lila) 0%, var(--lila-mid) 50%, var(--lila-dark) 100%);
+  background: url('photo-invitacion.jpg') center top / cover no-repeat;
   position: relative;
   overflow: hidden;
-}
-
-.inv-photo::before {
-  content: '♡';
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 6rem;
-  color: rgba(255,255,255,0.4);
 }
 
 .inv-text-layer {
@@ -360,7 +354,14 @@ a { text-decoration: none; color: inherit; }
 .cd-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--ivory) 0%, var(--lila) 50%, var(--ivory) 100%);
+  background: url('photo-countdown.jpg') center center / cover no-repeat;
+}
+
+.cd-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(242,237,230,0.78) 0%, rgba(216,204,232,0.72) 50%, rgba(242,237,230,0.78) 100%);
 }
 
 .cd-overlay {
@@ -428,18 +429,14 @@ a { text-decoration: none; color: inherit; }
 .bigday-photo {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, var(--lila-mid) 0%, var(--lila) 60%, var(--ivory) 100%);
+  background: url('photo-bigday.jpg') center center / cover no-repeat;
 }
 
-.bigday-photo::before {
-  content: '♡';
+.bigday-photo::after {
+  content: '';
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8rem;
-  color: rgba(255,255,255,0.3);
+  background: linear-gradient(to bottom, rgba(242,237,230,0.35) 0%, rgba(216,204,232,0.55) 100%);
 }
 
 .bigday-title-overlay {
@@ -678,7 +675,14 @@ a { text-decoration: none; color: inherit; }
 .dress-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--lila) 0%, #e8dff2 50%, var(--lila) 100%);
+  background: url('photo-dresscode.jpg') center center / cover no-repeat;
+}
+
+.dress-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(216,204,232,0.82) 0%, rgba(232,223,242,0.88) 50%, rgba(216,204,232,0.82) 100%);
 }
 
 .dress-overlay {
