@@ -148,7 +148,7 @@ a { text-decoration: none; color: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(242,237,230,0.55);
+  background: rgba(45,30,65,0.62);
   z-index: 1;
 }
 
@@ -168,14 +168,14 @@ a { text-decoration: none; color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  border: 1.5px solid var(--lila-dark);
+  border: 1.5px solid rgba(216,204,232,0.7);
   border-radius: 50%;
   width: 80px;
   height: 80px;
   justify-content: center;
   font-family: 'EB Garamond', serif;
   font-size: 1rem;
-  color: var(--lila-dark);
+  color: var(--lila);
 }
 
 .monogram-oval.small { width: 54px; height: 54px; font-size: 0.75rem; }
@@ -186,27 +186,29 @@ a { text-decoration: none; color: inherit; }
 .hero-names {
   font-family: 'Pinyon Script', cursive;
   font-size: clamp(3.5rem, 9vw, 7rem);
-  color: var(--lila-dark);
+  color: #ffffff;
   line-height: 1.1;
   font-weight: 400;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
-.hero-amp { font-style: normal; color: var(--lila-mid); }
+.hero-amp { font-style: normal; color: var(--lila); }
 
 .hero-date-clean {
   font-family: 'DM Sans', sans-serif;
   font-size: clamp(0.7rem, 1.5vw, 0.9rem);
   letter-spacing: 0.45em;
   font-weight: 300;
-  color: var(--lila-dark);
+  color: var(--lila);
   text-transform: uppercase;
 }
 
 .hero-divider {
   width: 60px;
   height: 1px;
-  background: var(--lila-mid);
+  background: var(--lila);
   margin: 0.3rem 0;
+  opacity: 0.7;
 }
 
 .hero-scroll-cue {
@@ -228,7 +230,7 @@ a { text-decoration: none; color: inherit; }
 .scroll-line {
   width: 1px;
   height: 50px;
-  background: linear-gradient(180deg, transparent, var(--lila-dark));
+  background: linear-gradient(180deg, transparent, var(--lila));
   animation: scrollDown 1.8s infinite;
 }
 
@@ -240,7 +242,7 @@ a { text-decoration: none; color: inherit; }
 .hero-scroll-cue span {
   font-size: 0.55rem;
   letter-spacing: 0.35em;
-  color: var(--lila-dark);
+  color: var(--lila);
 }
 
 /* ===== INVITACION ===== */
