@@ -61,7 +61,7 @@ a { text-decoration: none; color: inherit; }
 .nav-links a {
   font-size: 0.65rem;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text);
   transition: color 0.2s;
@@ -71,7 +71,7 @@ a { text-decoration: none; color: inherit; }
 
 .nav-rsvp {
   font-size: 0.62rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   font-weight: 500;
   color: var(--lila-dark);
   border: 1px solid var(--lila-dark);
@@ -115,7 +115,7 @@ a { text-decoration: none; color: inherit; }
   font-size: 2rem;
   font-style: italic;
   color: var(--dark2);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   transition: color 0.2s;
 }
 
@@ -197,7 +197,7 @@ a { text-decoration: none; color: inherit; }
 .hero-date-clean {
   font-family: 'DM Sans', sans-serif;
   font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-  letter-spacing: 0.45em;
+  letter-spacing: 0.08em;
   font-weight: 300;
   color: var(--lila);
   text-transform: uppercase;
@@ -241,7 +241,7 @@ a { text-decoration: none; color: inherit; }
 
 .hero-scroll-cue span {
   font-size: 0.55rem;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.12em;
   color: var(--lila);
 }
 
@@ -313,7 +313,7 @@ a { text-decoration: none; color: inherit; }
 
 .inv-formal-small {
   font-size: 0.6rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.06em;
   line-height: 2;
   color: var(--text);
   margin-bottom: 1rem;
@@ -386,7 +386,7 @@ a { text-decoration: none; color: inherit; }
 
 .cd-lbl {
   font-size: 0.6rem;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.12em;
   color: var(--text);
 }
 
@@ -496,7 +496,7 @@ a { text-decoration: none; color: inherit; }
 
 .sched-time {
   font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   color: var(--gold-dark);
   font-weight: 500;
   min-width: 65px;
@@ -513,7 +513,7 @@ a { text-decoration: none; color: inherit; }
 
 .sched-place {
   font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   color: var(--text);
 }
 
@@ -527,7 +527,7 @@ a { text-decoration: none; color: inherit; }
 /* ===== SECTION LABELS ===== */
 .sec-label {
   font-size: 0.62rem;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--lila-dark);
   text-align: center;
@@ -620,7 +620,7 @@ a { text-decoration: none; color: inherit; }
 
 .lugar-time {
   font-size: 0.7rem !important;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   color: var(--gold-dark) !important;
   font-weight: 500;
 }
@@ -628,7 +628,7 @@ a { text-decoration: none; color: inherit; }
 .lugar-map-btn {
   margin-top: auto;
   font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--lila-dark);
   border-bottom: 1px solid var(--lila-mid);
@@ -690,7 +690,7 @@ a { text-decoration: none; color: inherit; }
 .dress-badge {
   display: inline-block;
   font-size: 0.65rem;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   background: var(--lila-dark);
   color: var(--white);
@@ -758,7 +758,7 @@ a { text-decoration: none; color: inherit; }
 
 .swatch-col span {
   font-size: 0.58rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   color: var(--text);
   text-align: center;
 }
@@ -850,7 +850,7 @@ a { text-decoration: none; color: inherit; }
   font-size: 0.82rem;
   color: var(--text);
   margin-bottom: 3rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 
 .rsvp-form {
@@ -873,7 +873,7 @@ a { text-decoration: none; color: inherit; }
 
 .form-group label {
   font-size: 0.6rem;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--lila-dark);
 }
@@ -917,7 +917,7 @@ a { text-decoration: none; color: inherit; }
 .rsvp-btn {
   align-self: center;
   font-size: 0.68rem;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   font-weight: 500;
   color: var(--white);
@@ -960,7 +960,7 @@ footer {
 
 .footer-date {
   font-size: 0.65rem;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.06em;
   color: var(--text-light);
   margin-bottom: 0.3rem;
 }
@@ -974,7 +974,7 @@ footer {
 
 .footer-place {
   font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.06em;
   color: var(--text-light);
   margin-bottom: 0.5rem;
 }
@@ -1098,7 +1098,7 @@ footer {
   border-radius: 9999px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.2s;
@@ -1116,7 +1116,7 @@ footer {
   border-radius: 9999px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s;
@@ -1148,7 +1148,7 @@ footer {
 
 .admin-header .logout-btn {
   font-size: 0.62rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text);
   background: none;
@@ -1189,7 +1189,7 @@ footer {
 
 .summary-card .s-lbl {
   font-size: 0.6rem;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text);
   margin-top: 0.4rem;
@@ -1225,7 +1225,7 @@ footer {
 
 .add-form label {
   font-size: 0.58rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--lila-dark);
 }
@@ -1268,7 +1268,7 @@ footer {
 
 .guests-table th {
   font-size: 0.58rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text);
   text-align: left;
@@ -1290,7 +1290,7 @@ footer {
 .badge {
   display: inline-block;
   font-size: 0.6rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 0.25rem 0.7rem;
   border-radius: 9999px;
@@ -1303,7 +1303,7 @@ footer {
 
 .copy-btn {
   font-size: 0.6rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   padding: 0.3rem 0.8rem;
   background: none;
   border: 1px solid rgba(138,114,170,0.3);
@@ -1364,7 +1364,7 @@ footer {
 .rsvp-page-card .pases-info {
   font-size: 0.78rem;
   color: var(--text);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   margin-bottom: 2rem;
 }
 
@@ -1383,7 +1383,7 @@ footer {
   border-radius: 9999px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 500;
@@ -1400,7 +1400,7 @@ footer {
   border-radius: 9999px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s;
