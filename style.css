@@ -320,10 +320,11 @@ a { text-decoration: none; color: inherit; }
 }
 
 .inv-formal-date {
-  font-family: 'Pinyon Script', cursive;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
   font-style: normal;
-  color: var(--lila-dark);
+  color: var(--dark);
 }
 
 /* ===== COUNTDOWN ===== */
