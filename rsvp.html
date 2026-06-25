@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu Invitación · Carmen & Christopher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="rsvp-page-wrap">
+  <div class="rsvp-page-card">
+    <span class="logo">C & C</span>
+    <div class="divider"></div>
+
+    <!-- Loading -->
+    <div id="state-loading">
+      <p style="color:var(--text);font-size:0.85rem;">Cargando tu invitación...</p>
+    </div>
+
+    <!-- Not found -->
+    <div id="state-notfound" style="display:none;">
+      <p style="color:#dc2626;font-size:0.85rem;">Enlace no válido. Por favor verifica tu invitación.</p>
+    </div>
+
+    <!-- RSVP content -->
+    <div id="state-rsvp" style="display:none;">
+      <h1>¡Estás invitado/a!</h1>
+      <p class="guest-name" id="guest-name-display"></p>
+      <p class="pases-info" id="pases-display"></p>
+      <p style="font-size:0.8rem;color:var(--text);margin-bottom:1.5rem;">
+        Sábado, 14 de Noviembre · 2026<br/>
+        Misa 4:00 PM · Recepción 6:00 PM
+      </p>
+
+      <!-- Pending state -->
+      <div id="section-pending">
+        <p style="font-size:0.82rem;color:var(--text);margin-bottom:1.5rem;">¿Podrás acompañarnos?</p>
+        <div class="rsvp-btn-group">
+          <button class="btn-confirm" onclick="respond('confirmado')">Con mucho gusto</button>
+          <button class="btn-decline" onclick="respond('declinado')">Lo siento, no podré</button>
+        </div>
+      </div>
+
+      <!-- Confirmed state -->
+      <div id="section-confirmed" style="display:none;" class="rsvp-confirmed-msg">
+        <p style="font-size:1.1rem;margin-bottom:0.3rem;">¡Nos vemos el 14 de noviembre!</p>
+        <p style="font-size:0.8rem;opacity:0.8;">Tu asistencia ha sido confirmada. ¡Gracias!</p>
+      </div>
+
+      <!-- Declined state -->
+      <div id="section-declined" style="display:none;" class="rsvp-declined-msg">
+        <p style="font-size:1.1rem;margin-bottom:0.3rem;">Te extrañaremos.</p>
+        <p style="font-size:0.8rem;opacity:0.8;">Tu respuesta ha sido registrada. ¡Gracias!</p>
+      </div>
+
+      <div class="divider"></div>
+      <p style="font-size:0.72rem;color:var(--text-light);letter-spacing:0.05em;">
+        Quinta San Francisco · San Cayetano de Medina
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+  let db;
+  let guestToken;
+  let guestData;
+
+  async function init() {
+    const params = new URLSearchParams(location.search);
+    guestToken = params.get('token');
+
+    if (!guestToken) {
+      show('state-notfound');
+      return;
+    }
+
+    db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+    const { data, error } = await db
+      .from('invitados')
+      .select('*')
+      .eq('token', guestToken)
+      .single();
+
+    if (error || !data) {
+      show('state-notfound');
+      return;
+    }
+
+    guestData = data;
+    document.getElementById('guest-name-display').textContent = data.nombre;
+    document.getElementById('pases-display').textContent =
+      data.pases === 1 ? '1 lugar reservado para ti' : `${data.pases} lugares reservados`;
+
+    show('state-rsvp');
+
+    if (data.estado === 'confirmado') {
+      showSection('section-confirmed');
+    } else if (data.estado === 'declinado') {
+      showSection('section-declined');
+    } else {
+      showSection('section-pending');
+    }
+  }
+
+  async function respond(estado) {
+    const btns = document.querySelectorAll('.btn-confirm, .btn-decline');
+    btns.forEach(b => b.disabled = true);
+
+    const { error } = await db
+      .from('invitados')
+      .update({ estado, fecha_respuesta: new Date().toISOString() })
+      .eq('token', guestToken);
+
+    if (error) {
+      btns.forEach(b => b.disabled = false);
+      alert('Hubo un error. Por favor inténtalo de nuevo.');
+      return;
+    }
+
+    if (estado === 'confirmado') {
+      showSection('section-confirmed');
+    } else {
+      showSection('section-declined');
+    }
+  }
+
+  function show(id) {
+    ['state-loading','state-notfound','state-rsvp'].forEach(s => {
+      document.getElementById(s).style.display = s === id ? 'block' : 'none';
+    });
+  }
+
+  function showSection(id) {
+    ['section-pending','section-confirmed','section-declined'].forEach(s => {
+      document.getElementById(s).style.display = s === id ? 'block' : 'none';
+    });
+  }
+
+  init();
+</script>
+</body>
+</html>

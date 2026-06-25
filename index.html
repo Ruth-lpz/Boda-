@@ -6,7 +6,8 @@
   <title>Carmen & Christopher | 14 · 11 · 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -26,12 +27,16 @@
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <button class="nav-rsvp" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">RSVP</button>
-    <button class="nav-burger" id="burger-btn" onclick="toggleMenu()">☰</button>
+    <button class="nav-burger" id="burger-btn" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </nav>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <button class="mobile-close" onclick="toggleMenu()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
     <ul>
       <li><a href="#invitacion" onclick="toggleMenu()">Invitación</a></li>
       <li><a href="#bigday" onclick="toggleMenu()">El Gran Día</a></li>
@@ -44,8 +49,6 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-monogram">
         <div class="monogram-oval">
@@ -54,8 +57,9 @@
           <span class="mono-letter">C</span>
         </div>
       </div>
-      <p class="hero-label">CARMEN <span class="label-amp">&</span> CHRISTOPHER</p>
-      <p class="hero-date-script">14 de Noviembre, 2026</p>
+      <h1 class="hero-names">Carmen <span class="hero-amp">&</span> Christopher</h1>
+      <p class="hero-date-clean">14 · Noviembre · 2026</p>
+      <div class="hero-divider"></div>
       <div class="hero-scroll-cue" onclick="document.getElementById('invitacion').scrollIntoView({behavior:'smooth'})">
         <div class="scroll-line"></div>
         <span>SCROLL</span>
@@ -71,10 +75,10 @@
       </div>
       <div class="inv-text-layer">
         <blockquote class="inv-quote">
-          Juntos para siempre,<br /><em>a través de cada momento<br />y cada mañana.</em>
+          <span class="inv-quote-script">Juntos para siempre,</span><br /><em>a través de cada momento<br />y cada mañana.</em>
         </blockquote>
         <div class="inv-formal">
-          <p class="inv-formal-small">JUNTO A NUESTRAS FAMILIAS, NOSOTROS, CARMEN Y CHRISTOPHER,<br />CON ALEGRÍA LES INVITAMOS A CELEBRAR NUESTRA UNIÓN EN MATRIMONIO.</p>
+          <p class="inv-formal-small">Junto a nuestras familias, nosotros, Carmen y Christopher,<br />con alegría les invitamos a celebrar nuestra unión en matrimonio.</p>
           <p class="inv-formal-date">Sábado, 14 de Noviembre 2026</p>
           <p class="inv-formal-small" style="margin-top:.5rem;">LA MISA COMIENZA A LAS 4:00 PM</p>
         </div>
@@ -116,9 +120,7 @@
     <div class="bigday-left">
       <div class="bigday-photo"></div>
       <div class="bigday-title-overlay">
-        <span class="bd-the">el</span>
-        <span class="bd-big">gran</span>
-        <span class="bd-day">día</span>
+        <span class="bd-title-full">el día más hermoso</span>
       </div>
     </div>
     <div class="bigday-right">
@@ -171,11 +173,11 @@
   <section id="lugar">
     <div class="container">
       <p class="sec-label">Dónde celebramos</p>
-      <h2 class="sec-title">Los Lugares</h2>
+      <h2 class="sec-title sec-title-script">Los Lugares</h2>
       <div class="lugar-grid">
         <a href="https://maps.app.goo.gl/BSN5gy41ELouhrn3A" target="_blank" class="lugar-card">
           <div class="lugar-num">01</div>
-          <div class="lugar-icon">⛪</div>
+          <div class="lugar-icon"><i class="fa-solid fa-church"></i></div>
           <h3>Ceremonia Religiosa</h3>
           <p>Misa de Matrimonio</p>
           <p class="lugar-time">4:00 PM</p>
@@ -184,7 +186,7 @@
         <div class="lugar-vline"></div>
         <a href="https://maps.app.goo.gl/Nmgrgb62YfWBgKAF9" target="_blank" class="lugar-card">
           <div class="lugar-num">02</div>
-          <div class="lugar-icon">🌸</div>
+          <div class="lugar-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
           <h3>Quinta San Francisco</h3>
           <p>P.º de los Ángeles y Medina 314<br>San Cayetano de Medina</p>
           <p class="lugar-time">Recepción 6:00 PM</p>
@@ -199,39 +201,17 @@
     <div class="dress-bg"></div>
     <div class="dress-overlay"></div>
     <div class="dress-content">
-      <p class="sec-label light">Cómo vestir</p>
-      <h2 class="sec-title light">Dress Code</h2>
+      <p class="sec-label dark-label">Cómo vestir</p>
+      <h2 class="sec-title dark-title">Dress Code</h2>
       <div class="dress-body-wrap">
-        <div class="dress-badge">Formal Casual</div>
-        <p class="dress-text">
+        <div class="dress-badge">Cocktail</div>
+        <p class="dress-text no-italic">
           Queremos que te sientas elegante y cómodo/a.<br />
-          El código es <strong>Formal Casual</strong>.
+          El código de vestimenta es <strong>Cocktail</strong>.
         </p>
         <div class="dress-rule">
-          <span class="dress-rule-icon">✕</span>
+          <span class="dress-rule-icon"><i class="fa-solid fa-ban"></i></span>
           <p>Por favor <strong>evita el color lila</strong> — es el color de nuestra boda.</p>
-        </div>
-        <div class="dress-swatches">
-          <div class="swatch-col">
-            <div class="swatch" style="background:#f5f0e8;border:1px solid rgba(255,255,255,0.3);"></div>
-            <span>Blanco / Crema</span>
-          </div>
-          <div class="swatch-col">
-            <div class="swatch" style="background:#d4af37;"></div>
-            <span>Dorado</span>
-          </div>
-          <div class="swatch-col">
-            <div class="swatch" style="background:#1a1a1a;"></div>
-            <span>Negro</span>
-          </div>
-          <div class="swatch-col">
-            <div class="swatch" style="background:#a08060;"></div>
-            <span>Nude / Tierra</span>
-          </div>
-          <div class="swatch-col swatch-avoid">
-            <div class="swatch" style="background:#b39ddb;opacity:.5;"></div>
-            <span>Lila ✕</span>
-          </div>
         </div>
       </div>
     </div>
@@ -263,12 +243,6 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
-            <span>¿Es boda para adultos?</span><span class="faq-plus">+</span>
-          </button>
-          <div class="faq-a"><p>Sí. Para que todos puedan disfrutar plenamente, la celebración es solo para adultos. ¡Gracias por comprenderlo!</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
             <span>¿A qué hora llegar a la misa?</span><span class="faq-plus">+</span>
           </button>
           <div class="faq-a"><p>La misa comienza puntualmente a las 4:00 PM. Te recomendamos llegar <strong>15 minutos antes</strong> para encontrar tu lugar.</p></div>
@@ -282,46 +256,50 @@
     <div class="rsvp-bg"></div>
     <div class="rsvp-overlay"></div>
     <div class="rsvp-content">
-      <p class="sec-label light">Únete a nosotros</p>
-      <h2 class="sec-title light">Confirma tu Asistencia</h2>
+      <p class="sec-label dark-label">Únete a nosotros</p>
+      <h2 class="sec-title dark-title">Confirma tu Asistencia</h2>
       <p class="rsvp-sub">Antes del <strong>1 de octubre de 2026</strong></p>
-      <form class="rsvp-form" onsubmit="submitRsvp(event)">
+      <form class="rsvp-form" id="rsvp-form" onsubmit="submitRsvp(event)">
         <div class="form-row">
           <div class="form-group">
             <label>Nombre completo</label>
-            <input type="text" placeholder="Tu nombre" required />
+            <input type="text" id="rsvp-nombre" placeholder="Tu nombre" required />
           </div>
           <div class="form-group">
             <label>WhatsApp</label>
-            <input type="tel" placeholder="+52 000 000 0000" />
+            <input type="tel" id="rsvp-tel" placeholder="+52 000 000 0000" />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>¿Asistirás?</label>
-            <select required>
+            <select id="rsvp-asiste" required>
               <option value="">Selecciona...</option>
-              <option>Sí, con mucho gusto</option>
-              <option>Lo siento, no podré</option>
+              <option value="confirmado">Sí, con mucho gusto</option>
+              <option value="declinado">Lo siento, no podré</option>
             </select>
           </div>
           <div class="form-group">
             <label>Acompañantes</label>
-            <select>
-              <option>Solo yo</option>
-              <option>+ 1 persona</option>
-              <option>+ 2 personas</option>
+            <select id="rsvp-pases">
+              <option value="1">Solo yo</option>
+              <option value="2">+ 1 persona</option>
+              <option value="3">+ 2 personas</option>
             </select>
           </div>
         </div>
         <div class="form-group">
           <label>Mensaje para los novios</label>
-          <textarea placeholder="Escribe algo especial..."></textarea>
+          <textarea id="rsvp-mensaje" placeholder="Escribe algo especial..."></textarea>
         </div>
         <button type="submit" class="rsvp-btn">Confirmar Asistencia</button>
       </form>
       <div id="rsvp-thanks" style="display:none;" class="rsvp-thanks">
-        <p>💛 ¡Gracias! Tu confirmación ha sido recibida. ¡Los esperamos!</p>
+        <i class="fa-regular fa-heart"></i>
+        <p>¡Gracias! Tu confirmación ha sido recibida. ¡Los esperamos!</p>
+      </div>
+      <div id="rsvp-error" style="display:none;" class="rsvp-error">
+        <p>Hubo un error al guardar tu respuesta. Por favor inténtalo de nuevo.</p>
       </div>
     </div>
   </section>
@@ -337,9 +315,11 @@
     <p class="footer-date">14 · Noviembre · 2026</p>
     <div class="footer-rule"></div>
     <p class="footer-place">Quinta San Francisco · San Cayetano de Medina</p>
-    <p class="footer-copy">Hecho con amor 💛</p>
+    <p class="footer-copy">Hecho con amor <i class="fa-regular fa-heart"></i></p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
