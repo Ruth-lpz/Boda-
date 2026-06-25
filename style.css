@@ -297,6 +297,14 @@ a { text-decoration: none; color: inherit; }
   border: none;
 }
 
+.inv-quote-script {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-style: normal;
+  color: var(--lila-dark);
+  line-height: 1.1;
+}
+
 .inv-quote em {
   color: var(--lila-dark);
 }
@@ -312,10 +320,10 @@ a { text-decoration: none; color: inherit; }
 }
 
 .inv-formal-date {
-  font-family: 'EB Garamond', serif;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-style: italic;
-  color: var(--dark2);
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-style: normal;
+  color: var(--lila-dark);
 }
 
 /* ===== COUNTDOWN ===== */
@@ -528,6 +536,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .sec-label.light { color: var(--lila); }
+.sec-label.dark-label { color: var(--dark2); }
 
 .sec-title {
   font-family: 'DM Sans', sans-serif;
@@ -540,6 +549,14 @@ a { text-decoration: none; color: inherit; }
 }
 
 .sec-title.light { color: var(--white); }
+.sec-title.dark-title { color: var(--dark2); }
+
+.sec-title-script {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+}
 
 /* ===== LUGAR ===== */
 #lugar {
@@ -689,6 +706,10 @@ a { text-decoration: none; color: inherit; }
   font-style: italic;
   color: var(--dark2);
   margin-bottom: 1.5rem;
+}
+
+.dress-text.no-italic {
+  font-style: normal;
 }
 
 .dress-rule {
