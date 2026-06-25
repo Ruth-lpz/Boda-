@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin · Carmen & Christopher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" class="page-wrap">
+  <div class="card">
+    <div class="card-logo">C & C</div>
+    <h1>Panel de Administración</h1>
+    <p>Ingresa la contraseña para continuar.</p>
+    <input type="password" id="pw-input" placeholder="Contraseña" onkeydown="if(event.key==='Enter')checkPw()" />
+    <button class="btn-primary" onclick="checkPw()">Entrar</button>
+    <p id="pw-error" style="color:#dc2626;font-size:0.75rem;margin-top:0.8rem;display:none;">Contraseña incorrecta.</p>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel" class="admin-wrap" style="display:none;">
+  <header class="admin-header">
+    <span class="logo">C & C</span>
+    <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
+  </header>
+  <div class="admin-body">
+
+    <!-- Summary -->
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="s-num" id="s-total">—</div>
+        <span class="s-lbl">Total</span>
+      </div>
+      <div class="summary-card">
+        <div class="s-num" id="s-confirmados">—</div>
+        <span class="s-lbl">Confirmados</span>
+      </div>
+      <div class="summary-card">
+        <div class="s-num" id="s-declinados">—</div>
+        <span class="s-lbl">Declinados</span>
+      </div>
+      <div class="summary-card">
+        <div class="s-num" id="s-pendientes">—</div>
+        <span class="s-lbl">Pendientes</span>
+      </div>
+    </div>
+
+    <!-- Add guest -->
+    <div class="admin-section">
+      <h2>Agregar Invitado</h2>
+      <div class="add-form">
+        <div class="fg">
+          <label>Nombre completo</label>
+          <input type="text" id="new-nombre" placeholder="Nombre del invitado" />
+        </div>
+        <div class="fg" style="max-width:130px;">
+          <label>Pases</label>
+          <select id="new-pases">
+            <option value="1">1 pase</option>
+            <option value="2">2 pases</option>
+            <option value="3">3 pases</option>
+            <option value="4">4 pases</option>
+          </select>
+        </div>
+        <button class="btn-primary" onclick="addGuest()">Agregar</button>
+      </div>
+      <div id="new-link-box" class="new-link-box" style="display:none;">
+        <span id="new-link-text"></span>
+        <button class="copy-btn" onclick="copyNewLink()">Copiar</button>
+      </div>
+    </div>
+
+    <!-- Guests table -->
+    <div class="admin-section">
+      <h2>Lista de Invitados</h2>
+      <div style="overflow-x:auto;">
+        <table class="guests-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Pases</th>
+              <th>Estado</th>
+              <th>Respuesta</th>
+              <th>Enlace</th>
+            </tr>
+          </thead>
+          <tbody id="guests-tbody">
+            <tr><td colspan="5" style="text-align:center;color:var(--text);padding:2rem;">Cargando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+  let db;
+  let allGuests = [];
+
+  function checkPw() {
+    const val = document.getElementById('pw-input').value;
+    if (val === ADMIN_PASSWORD) {
+      sessionStorage.setItem('admin_auth', '1');
+      showPanel();
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+    }
+  }
+
+  function logout() {
+    sessionStorage.removeItem('admin_auth');
+    location.reload();
+  }
+
+  async function showPanel() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+    db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+    await loadGuests();
+  }
+
+  async function loadGuests() {
+    const { data, error } = await db.from('invitados').select('*').order('id', { ascending: false });
+    if (error) { console.error(error); return; }
+    allGuests = data || [];
+    renderSummary();
+    renderTable();
+  }
+
+  function renderSummary() {
+    document.getElementById('s-total').textContent = allGuests.length;
+    document.getElementById('s-confirmados').textContent = allGuests.filter(g => g.estado === 'confirmado').length;
+    document.getElementById('s-declinados').textContent  = allGuests.filter(g => g.estado === 'declinado').length;
+    document.getElementById('s-pendientes').textContent  = allGuests.filter(g => g.estado === 'pendiente').length;
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById('guests-tbody');
+    if (!allGuests.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text);padding:2rem;">Sin invitados todavía.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = allGuests.map(g => {
+      const link = `${location.origin}/rsvp?token=${g.token}`;
+      const fecha = g.fecha_respuesta ? new Date(g.fecha_respuesta).toLocaleDateString('es-MX') : '—';
+      const badge = `<span class="badge badge-${g.estado}">${g.estado}</span>`;
+      return `<tr>
+        <td><strong>${esc(g.nombre)}</strong></td>
+        <td>${g.pases}</td>
+        <td>${badge}</td>
+        <td>${fecha}</td>
+        <td><button class="copy-btn" onclick="copyLink('${esc(link)}')">Copiar enlace</button></td>
+      </tr>`;
+    }).join('');
+  }
+
+  async function addGuest() {
+    const nombre = document.getElementById('new-nombre').value.trim();
+    const pases  = parseInt(document.getElementById('new-pases').value, 10);
+    if (!nombre) { alert('Ingresa el nombre del invitado.'); return; }
+
+    const { data, error } = await db.from('invitados').insert({ nombre, pases }).select().single();
+    if (error) { console.error(error); alert('Error al agregar invitado.'); return; }
+
+    document.getElementById('new-nombre').value = '';
+    const link = `${location.origin}/rsvp?token=${data.token}`;
+    const box  = document.getElementById('new-link-box');
+    document.getElementById('new-link-text').textContent = link;
+    box.style.display = 'flex';
+    window._newLink = link;
+    await loadGuests();
+  }
+
+  function copyNewLink() {
+    navigator.clipboard.writeText(window._newLink || '');
+  }
+
+  function copyLink(link) {
+    navigator.clipboard.writeText(link);
+  }
+
+  function esc(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // Auto-login if session exists
+  if (sessionStorage.getItem('admin_auth') === '1') {
+    showPanel();
+  }
+</script>
+</body>
+</html>
