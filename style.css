@@ -334,8 +334,10 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600;
   font-style: normal;
   color: var(--dark);
+}
+
+.inv-formal-date span {
   background: linear-gradient(transparent 60%, rgba(184,160,204,0.45) 60%);
-  display: inline;
 }
 
 /* ===== COUNTDOWN ===== */
