@@ -578,6 +578,8 @@ a { text-decoration: none; color: inherit; }
 #lugar {
   background: var(--white);
   padding: 7rem 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 #lugar .sec-title { color: var(--dark2); }
@@ -591,12 +593,17 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 
-.lugar-img {
-  width: calc(100% + 4rem);
-  height: 200px;
+.lugar-side-img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 18%;
   object-fit: cover;
-  margin: -3rem -2rem 1.5rem -2rem;
+  object-position: center;
 }
+
+.lugar-side-left { left: 0; }
+.lugar-side-right { right: 0; }
 
 .lugar-card {
   flex: 1;
