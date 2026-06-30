@@ -311,7 +311,7 @@ a { text-decoration: none; color: inherit; }
   font-size: clamp(2.5rem, 5.5vw, 4rem);
   font-style: normal;
   color: var(--dark);
-  line-height: 1.1;
+  line-height: 0.8;
 }
 
 .inv-quote em {
