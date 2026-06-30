@@ -598,8 +598,18 @@ a { text-decoration: none; color: inherit; }
 
 .lugar-side-img {
   width: 15%;
-  object-fit: cover;
   flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+}
+
+.lugar-side-left {
+  background-image: url('izquierda.webp');
+}
+
+.lugar-side-right {
+  background-image: url('derecha.webp');
 }
 
 .lugar-layout .container {
