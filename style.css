@@ -281,7 +281,7 @@ a { text-decoration: none; color: inherit; }
 .inv-photo {
   width: 85%;
   aspect-ratio: 3/4;
-  background: url('photo-invitacion.jpg') center top / cover no-repeat;
+  background: url('img1.webp') center top / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
