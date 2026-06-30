@@ -334,6 +334,9 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600;
   font-style: normal;
   color: var(--dark);
+  text-decoration: underline;
+  text-decoration-color: var(--lila-dark);
+  text-underline-offset: 6px;
 }
 
 /* ===== COUNTDOWN ===== */
