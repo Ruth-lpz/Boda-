@@ -321,7 +321,7 @@ a { text-decoration: none; color: inherit; }
 .inv-formal { padding-top: 1rem; }
 
 .inv-formal-small {
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   letter-spacing: 0.06em;
   line-height: 2;
   color: var(--text);
