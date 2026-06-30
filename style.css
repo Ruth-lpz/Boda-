@@ -415,7 +415,7 @@ a { text-decoration: none; color: inherit; }
 .bigday-photo {
   position: absolute;
   inset: 0;
-  background: url('DSC00752%202.jpg') center center / cover no-repeat;
+  background: url('DSC00781%202.jpg') center center / cover no-repeat;
 }
 
 .bigday-photo::after {
