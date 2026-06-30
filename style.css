@@ -309,7 +309,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--lila-dark);
 }
 
-.inv-formal { border-top: 1px solid rgba(138,114,170,0.2); padding-top: 2rem; }
+.inv-formal { padding-top: 1rem; }
 
 .inv-formal-small {
   font-size: 0.6rem;
