@@ -577,9 +577,7 @@ a { text-decoration: none; color: inherit; }
 /* ===== LUGAR ===== */
 #lugar {
   background: var(--white);
-  padding: 7rem 2rem;
-  position: relative;
-  overflow: hidden;
+  padding: 0;
 }
 
 #lugar .sec-title { color: var(--dark2); }
@@ -593,17 +591,21 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 
-.lugar-side-img {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 18%;
-  object-fit: cover;
-  object-position: center;
+.lugar-layout {
+  display: flex;
+  align-items: stretch;
 }
 
-.lugar-side-left { left: 0; }
-.lugar-side-right { right: 0; }
+.lugar-side-img {
+  width: 15%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.lugar-layout .container {
+  flex: 1;
+  padding: 7rem 2rem;
+}
 
 .lugar-card {
   flex: 1;
