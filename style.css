@@ -337,7 +337,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .inv-formal-date span {
-  background: linear-gradient(transparent 40%, rgba(184,160,204,0.45) 40%);
+  background: linear-gradient(transparent 20%, rgba(184,160,204,0.45) 20%);
 }
 
 /* ===== COUNTDOWN ===== */
