@@ -274,7 +274,7 @@ a { text-decoration: none; color: inherit; }
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  width: 160px;
+  width: 250px;
   z-index: 3;
 }
 
