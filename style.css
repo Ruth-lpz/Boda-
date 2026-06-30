@@ -592,10 +592,10 @@ a { text-decoration: none; color: inherit; }
 }
 
 .lugar-img {
-  width: 100%;
+  width: calc(100% + 4rem);
   height: 200px;
   object-fit: cover;
-  margin-bottom: 1rem;
+  margin: -3rem -2rem 1.5rem -2rem;
 }
 
 .lugar-card {
